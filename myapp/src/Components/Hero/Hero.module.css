@@ -1,0 +1,155 @@
+.tech_icon img {
+  width: 3rem;
+  height: 3rem;
+  transition: all 0.3s ease;
+}
+.tech_icon {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid #a993fe;
+  border-radius: 1rem;
+}
+.profile_icon {
+  width: 100px;
+  height: 350px;
+  border-radius: 2rem;
+}
+.content {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.content::after,
+.content::before {
+  content: " ";
+  width: 28rem;
+  height: 28rem;
+  border-radius: 28rem;
+  background-color: #7e61e7;
+  z-index: -1;
+  position: absolute;
+  filter: blur(225px);
+}
+.content::before {
+  bottom: 2rem;
+  right: 0;
+}
+.content::after {
+  left: -5rem;
+  top: -3rem;
+}
+.m_content {
+  flex: 1;
+}
+.m_content h2 {
+  font-size: 3.8rem;
+  font-weight: 600;
+  line-height: 5rem;
+  margin-bottom: 1rem;
+}
+.m_content p {
+  width: 80%;
+  font-weight: 400;
+  font-size: 1rem;
+  left: 2rem;
+}
+.img {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+.img > div {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+}
+.img > div > img {
+  width: 20rem;
+  transition: all 0.3s ease;
+}
+.img > div > img:hover,
+.tech_icon img:hover {
+  transform: translate(-0.8rem);
+}
+@media (max-width: 1025px) {
+  .m_content h2 {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+  .m_content p {
+    font-size: 0.8rem;
+    line-height: 1.6rem;
+  }
+  .img > div > img {
+    width: 15rem;
+  }
+  .tech_icon {
+    width: 4rem;
+    height: 4rem;
+  }
+  .tech_icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+  }
+  .img {
+    margin: 2rem 0 2rem 0;
+  }
+  .m_content h2,
+  .m_content p {
+    width: auto;
+    text-align: center;
+  }
+  .content::after,
+  .content::before {
+    width: 10rem;
+    height: 10rem;
+  }
+  .content::after {
+    top: 1rem;
+    left: 0;
+  }
+  .content::before {
+    bottom: 2rem;
+    right: 0;
+  }
+}
+@media (max-width: 600px) {
+  .m_content h2 {
+    font-size: 2.2rem;
+    line-height: 3rem;
+  }
+  .m_content p {
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+  }
+  .img {
+    gap: 2rem;
+  }
+  .img > div {
+    gap: 1rem;
+  }
+  .img > div > img {
+    width: 10rem;
+    height: 14rem;
+  }
+  .tech_icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  .tech_icon img {
+    width: 2rem;
+    height: 2rem;
+  }
+}

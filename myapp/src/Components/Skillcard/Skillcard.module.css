@@ -1,0 +1,78 @@
+.card {
+  border-radius: 0.65rem;
+  border: 1px solid #7e61e7;
+  text-align: center;
+  padding: 2.5rem;
+  background: rgba(22, 17, 47, 0.398);
+  backdrop-filter: blur(1rem);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  box-sizing: border-box; /* Ensures padding is included in width and height */
+  width: 100%; /* Make it fit the container */
+  max-width: 100%; /* Prevent overflow */
+}
+.card:hover,
+.card:active {
+  background: linear-gradient(180deg, #a993fe 0%, #7e61e7 100%);
+}
+.card span {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.cardIcon {
+  width: 3rem;
+  height: 3rem;
+  background: #2a2252;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border-radius: 0.4rem;
+  border: 1px solid #7e61e7;
+  top: -1rem;
+  left: -1rem;
+}
+.cardIcon img {
+  width: 2.4rem;
+  height: auto;
+  /* box-sizing: border-box; */
+  object-fit: contain;
+}
+
+@media (max-width: 1025px) {
+  .card {
+    padding: 2rem;
+  }
+  .card span {
+    font-size: 1rem;
+  }
+  .cardIcon {
+    width: 3rem;
+    height: 3rem;
+  }
+  .cardIcon img {
+    width: 1.8rem;
+  }
+}
+@media (max-width: 768px) {
+  .card span {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 600px) {
+  .card {
+    padding: 1rem;
+  }
+  .card p {
+    font-size: 0.8rem;
+  }
+  .cardIcon {
+    width: 2rem;
+    height: 2rem;
+  }
+  .cardIcon img {
+    width: 1.3rem;
+  }
+}

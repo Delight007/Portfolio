@@ -1,0 +1,20 @@
+.SkillsIconInfo {
+  min-height: 23rem;
+  border-radius: 0.65rem;
+  border: 1px solid #6951b7;
+  background: rgba(22, 17, 47, 0.398);
+  backdrop-filter: blur(1rem);
+}
+.SkillsIconInfo h6 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(100deg, #a993fe 0%, #7e61e7 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 1px solid #6951b7;
+}
+.skills_content {
+  padding: 2rem;
+}
