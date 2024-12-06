@@ -1,0 +1,56 @@
+.WorkExperience_container {
+  margin: 4rem 0;
+  position: relative;
+}
+.WorkExperience_container h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+.arrow_right,
+.arrow_left {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #130f2a;
+  color: #6751b9;
+  border: 1px solid #6751b9;
+  border-radius: 0.65rem;
+  position: absolute;
+  z-index: 2;
+  top: 55%;
+  cursor: pointer;
+}
+.arrow_right span,
+.arrow_left span {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.arrow_left {
+  left: -1rem;
+}
+.arrow_right {
+  right: -1rem;
+}
+@media (max-width: 1025px) {
+  .arrow_left {
+    left: 0;
+  }
+  .arrow_right {
+    right: 0;
+  }
+}
+@media (max-width: 768px) {
+  .WorkExperience_container h5 {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+  }
+  .arrow_left {
+    left: -1rem;
+  }
+  .arrow_right {
+    right: -1rem;
+  }
+}
