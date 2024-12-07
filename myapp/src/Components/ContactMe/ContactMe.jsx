@@ -7,7 +7,7 @@ export default function ContactMe() {
   return (
     <section className={styles.Contact_container}>
       <h5>Contact me</h5>
-      <div className={styles.ContactMe_content}>
+      <div id="contact" className={styles.ContactMe_content}>
         <div style={{ flex: 1 }}>
           <ContactMeCard urlLink={email} text={"ganalafiyalevi@gmail.com"} />
           <ContactMeCard urlLink={git} text={"https://github.com/Delight007"} />

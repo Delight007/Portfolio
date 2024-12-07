@@ -9,7 +9,7 @@ export default function Skills() {
     setSelectSkill(data);
   }
   return (
-    <section className={styles.Skills_container}>
+    <section id="skills" className={styles.Skills_container}>
       <h5>Technical Proficiency</h5>
       <div className={styles.Skills_content}>
         <div className={styles.Skills}>

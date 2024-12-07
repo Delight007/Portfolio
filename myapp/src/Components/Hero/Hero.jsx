@@ -6,7 +6,7 @@ import cssLogo from "../img/css.webp";
 import javaLogo from "../img/javascript.webp";
 export default function Hero() {
   return (
-    <section className={styles.content}>
+    <section id="hero" className={styles.content}>
       <div className={styles.m_content}>
         <h2>Code Innovator | Crafting Future-Ready Application </h2>
         <p>

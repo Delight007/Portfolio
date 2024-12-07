@@ -32,7 +32,7 @@ export default function WorkExperience() {
     sliderRef.current.slickPrev();
   }
   return (
-    <section className={styles.WorkExperience_container}>
+    <section id="workExperience" className={styles.WorkExperience_container}>
       <h5>Work Experience</h5>
       <div className={styles.WorkExperience_content}>
         <div className={styles.arrow_right} onClick={right}>
