@@ -1,44 +1,7 @@
-// import { useState } from "react";
-// import { FaTimes } from "react-icons/fa";
-// import { IoMenu } from "react-icons/io5";
-// import MobileNav from "../Mobilenav/MobileNav";
-// import styles from "./Nav.module.css";
-
-// export default function Nav() {
-//   const [openMenu, setOpenMenu] = useState(false);
-
-//   function toggleMenu() {
-//     setOpenMenu(!openMenu);
-//   }
-//   return (
-//     <>
-//       <MobileNav openMenu={openMenu} toggleMenu={toggleMenu} />
-//       <nav className={styles.nav}>
-//         <div className={styles.nav_content}>
-//           <h1 className={styles.head}>
-//             Gan <span>A</span>
-//           </h1>
-//           <div className={styles.links}>
-//             <a href="#hero">Home</a>
-//             <a href="#skills">Skils</a>
-//             <a href="#workExperience">Work Experience</a>
-//             <a href="#contact">Contact Me</a>
-//             <button className={styles.btn}>Hire me</button>
-//           </div>
-//           <button className={styles.btn2} onClick={toggleMenu}>
-//             {openMenu ? <FaTimes /> : <IoMenu />}
-//           </button>
-//         </div>
-//       </nav>
-//     </>
-//   );
-// }
-
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
-import MobileNav from "../Mobilenav/MobileNav";
-
+import MobileNav from "../Mobilenav/mobileNav";
 export default function Nav() {
   const [openMenu, setOpenMenu] = useState(false);
 
