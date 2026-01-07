@@ -1,6 +1,6 @@
 import ContactMe from "./Components/ContactMe/contact.jsx";
 import GlobalProvider from "./Components/context/GlobalContext.jsx";
-import Footer from "./Components/Footer/footer.jsx";
+import Footer from "./Components/Footer/foot.jsx";
 import Hero from "./Components/hero/heroo.jsx";
 import Nav from "./Components/Navbar/Nav.jsx";
 import Skills from "./Components/skill/Skills.jsx";
