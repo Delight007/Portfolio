@@ -1,4 +1,4 @@
-import ContactMe from "./Components/ContactMe/contactMe.jsx";
+import ContactMe from "./Components/ContactMe/contact.jsx";
 import GlobalProvider from "./Components/context/GlobalContext.jsx";
 import Footer from "./Components/Footer/footer.jsx";
 import Hero from "./Components/hero/heroo.jsx";
