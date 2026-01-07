@@ -1,5 +1,5 @@
 import Form from "../Form/Form";
-import styles from "./contactMe.module.css";
+import styles from "./contact.module.css";
 import ContactMeCard from "./ContactMeCard/ContactMeCard";
 import email from "./img/email2.png";
 import git from "./img/git3.png";
