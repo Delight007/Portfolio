@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { IoMenu } from "react-icons/io5";
-import MobileNav from "../Mobilenav/mobileNav";
+import MobileNav from "../Mobilenav/mobileNav.jsx";
 export default function Nav() {
   const [openMenu, setOpenMenu] = useState(false);
 
