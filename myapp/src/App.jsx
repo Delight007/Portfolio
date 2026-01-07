@@ -1,25 +1,26 @@
-import Nav from "./Components/Navbar/Nav";
-import "./App.css";
-import Hero from "./Components/Hero/Hero";
-import Skills from "./Components/skills/Skills";
-import GlobalProvider from "./Components/context/GlobalContext";
-import WorkExperience from "./Components/WorkExperience/WorkExperience";
-import ContactMe from "./Components/ContactMe/ContactMe";
-import Footer from "./Components/Footer/Footer";
+import ContactMe from "./Components/ContactMe/ContactMe.jsx";
+import GlobalProvider from "./Components/context/GlobalContext.jsx";
+import Footer from "./Components/Footer/Footer.jsx";
+import Hero from "./Components/Hero/Hero.jsx";
+import Nav from "./Components/Navbar/Nav.jsx";
+import Skills from "./Components/Skills/Skills.jsx";
+import WorkExperience from "./Components/WorkExperience/WorkExperience.jsx";
+
 function App() {
   return (
-    <>
-      <GlobalProvider>
+    <GlobalProvider>
+      <div className="min-h-screen bg-[#060417] text-white font-poppins">
         <Nav />
-        <div className="content">
+
+        <div className="mx-auto max-w-[1300px] relative px-6 2xl:px-0">
           <Hero />
           <Skills />
           <WorkExperience />
           <ContactMe />
           <Footer />
         </div>
-      </GlobalProvider>
-    </>
+      </div>
+    </GlobalProvider>
   );
 }
 

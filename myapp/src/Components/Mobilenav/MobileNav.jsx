@@ -11,10 +11,10 @@ export default function MobileNav({ openMenu, toggleMenu }) {
             Gani <span>X</span>
           </h1>
           <div className={styles.links}>
-            <a href="/">Home</a>
-            <a href="/skills">Skils</a>
-            <a href="/workExperience">Work Experience</a>
-            <a href="/contact">Contact Me</a>
+            <a href="#hero">Home</a>
+            <a href="#skills">Skils</a>
+            <a href="#workExperience">Work Experience</a>
+            <a href="#contact">Contact Me</a>
             <button className={styles.btn}>Hire me</button>
           </div>
           {/* <button className={styles.btn2} onClick={toggleMenu}>
