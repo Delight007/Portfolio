@@ -1,10 +1,10 @@
-import ContactMe from "./Components/ContactMe/ContactMe.jsx";
+import ContactMe from "./Components/ContactMe/contactMe.jsx";
 import GlobalProvider from "./Components/context/GlobalContext.jsx";
-import Footer from "./Components/Footer/Footer.jsx";
-import Hero from "./Components/Hero/Hero.jsx";
+import Footer from "./Components/Footer/footer.jsx";
+import Hero from "./Components/hero/heroo.jsx";
 import Nav from "./Components/Navbar/Nav.jsx";
 import Skills from "./Components/skill/Skills.jsx";
-import WorkExperience from "./Components/WorkExperience/WorkExperience.jsx";
+import WorkExperience from "./Components/WorkExperience/work.jsx";
 function App() {
   return (
     <GlobalProvider>
