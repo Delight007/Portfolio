@@ -70,7 +70,7 @@ const PROJECTS_DATA = [
   },
   {
     id: 2,
-    title: "TribTalk Chat App",
+    title: "TribeTalk Chat App",
     description:
       "Real-time chat application with Socket.IO and JWT authentication. Designed responsive UI with online/offline status indicators. Built with React Native for cross-platform compatibility.",
     shortDescription: "Real-time messaging application",
