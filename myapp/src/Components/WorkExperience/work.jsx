@@ -31,7 +31,7 @@ import {
 import Evoting from "../img/Evoting.jpeg";
 import form from "../img/form.jpeg";
 import G_express from "../img/G_express.jpeg";
-import Krea from "../img/Krea.jpeg";
+import Krea from "../img/krea.jpeg";
 
 // Project images - Replace these with your actual screenshots
 const PROJECT_IMAGES = {
