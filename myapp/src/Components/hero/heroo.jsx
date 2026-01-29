@@ -50,15 +50,15 @@ export default function Hero() {
 
             {/* Title with Animated Role */}
             <div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
                   Gana Lafiya
                 </span>
                 <br />
                 Levi
               </h1>
-              <div className="flex items-center gap-3 text-2xl text-gray-300 mb-6 h-10">
-                <div className="relative w-64 h-10">
+              <div className="flex items-center gap-3 text-xl sm:text-2xl text-gray-300 mb-6 h-10">
+                <div className="relative w-48 sm:w-56 md:w-64 h-10">
                   {roles.map((role, index) => (
                     <div
                       key={role}
@@ -111,7 +111,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a
                 href="#contact"
-                className="group inline-flex items-center justify-center gap-2 px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl"
+                className="group w-full sm:flex-1 sm:max-w-xs inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl"
               >
                 <FiMail className="group-hover:scale-110 transition-transform" />
                 Contact Me
@@ -119,45 +119,47 @@ export default function Hero() {
               </a>
               <a
                 href="#projects"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-gray-700 rounded-lg font-semibold hover:border-purple-500 hover:text-purple-400 transition-all duration-300"
+                className="w-full sm:flex-1 sm:max-w-xs inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 border border-gray-700 rounded-lg font-semibold hover:border-purple-500 hover:text-purple-400 transition-all duration-300"
               >
                 View My Work
               </a>
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4 pt-6">
-              <a
-                href="https://github.com/Delight007"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full border border-gray-700 hover:border-purple-500 hover:text-purple-400 hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1"
-                aria-label="GitHub"
-              >
-                <FiGithub className="w-5 h-5" />
-              </a>
-              <a
-                href="https://linkedin.com/in/levi-gana-462102348/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full border border-gray-700 hover:border-blue-500 hover:text-blue-400 hover:bg-blue-500/10 transition-all duration-300 transform hover:-translate-y-1"
-                aria-label="LinkedIn"
-              >
-                <FiLinkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://x.com/levi_gana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full border border-gray-700 hover:border-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 transform hover:-translate-y-1"
-                aria-label="Twitter"
-              >
-                <AiOutlineX className="w-5 h-5" />
-              </a>
-              <div className="ml-4 pl-4 border-l border-gray-800">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-4 pt-6">
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://github.com/Delight007"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full border border-gray-700 hover:border-purple-500 hover:text-purple-400 hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1"
+                  aria-label="GitHub"
+                >
+                  <FiGithub className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://linkedin.com/in/levi-gana-462102348/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full border border-gray-700 hover:border-blue-500 hover:text-blue-400 hover:bg-blue-500/10 transition-all duration-300 transform hover:-translate-y-1"
+                  aria-label="LinkedIn"
+                >
+                  <FiLinkedin className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://x.com/levi_gana"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full border border-gray-700 hover:border-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 transform hover:-translate-y-1"
+                  aria-label="Twitter"
+                >
+                  <AiOutlineX className="w-5 h-5" />
+                </a>
+              </div>
+              <div className="sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-800">
                 <a
                   href="mailto:ganalafiyalevi@gmail.com"
-                  className="text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+                  className="text-sm text-gray-400 hover:text-cyan-400 transition-colors break-all sm:break-normal"
                 >
                   ganalafiyalevi@gmail.com
                 </a>
@@ -179,31 +181,31 @@ export default function Hero() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
 
-                {/* Floating Tech Badges */}
-                <div className="absolute -top-4 -right-4 animate-float">
+                {/* Floating Tech Badges - Hidden on mobile, shown on md+ screens */}
+                <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 animate-float hidden md:block">
                   <TechBadge
-                    icon={<SiNextdotjs className="w-6 h-6 text-white" />}
+                    icon={<SiNextdotjs className="w-5 h-5 md:w-6 md:h-6 text-white" />}
                     label="Next.js"
                     bgColor="bg-gradient-to-br from-gray-900 to-black"
                   />
                 </div>
-                <div className="absolute -bottom-4 -left-4 animate-float animation-delay-1000">
+                <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 animate-float animation-delay-1000 hidden md:block">
                   <TechBadge
-                    icon={<SiTypescript className="w-6 h-6 text-blue-400" />}
+                    icon={<SiTypescript className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />}
                     label="TypeScript"
                     bgColor="bg-gradient-to-br from-blue-900/40 to-blue-900/20"
                   />
                 </div>
-                <div className="absolute top-1/2 -right-8 animate-float animation-delay-2000">
+                <div className="absolute top-1/2 -right-4 md:-right-8 animate-float animation-delay-2000 hidden md:block">
                   <TechBadge
-                    icon={<SiReact className="w-6 h-6 text-cyan-400" />}
+                    icon={<SiReact className="w-5 h-5 md:w-6 md:h-6 text-cyan-400" />}
                     label="React"
                     bgColor="bg-gradient-to-br from-cyan-900/40 to-cyan-900/20"
                   />
                 </div>
-                <div className="absolute bottom-8 -left-8 animate-float animation-delay-3000">
+                <div className="absolute bottom-4 -left-4 md:bottom-8 md:-left-8 animate-float animation-delay-3000 hidden md:block">
                   <TechBadge
-                    icon={<SiTailwindcss className="w-6 h-6 text-teal-400" />}
+                    icon={<SiTailwindcss className="w-5 h-5 md:w-6 md:h-6 text-teal-400" />}
                     label="Tailwind"
                     bgColor="bg-gradient-to-br from-teal-900/40 to-teal-900/20"
                   />
@@ -213,34 +215,36 @@ export default function Hero() {
               {/* Decorative Border */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-600 -z-10 blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
 
-              {/* Experience Card */}
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-gray-700 rounded-xl p-4 shadow-2xl w-4/5 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1">
-                <div className="flex items-center justify-between">
+              {/* Experience Card
+              <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-gray-700 rounded-xl p-3 sm:p-4 shadow-2xl w-11/12 sm:w-4/5 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
                   <div className="text-center">
-                    <p className="text-sm text-gray-400">Experience</p>
-                    <p className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    <p className="text-xs sm:text-sm text-gray-400">Experience</p>
+                    <p className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                       3+
                     </p>
                     <p className="text-xs text-gray-500">Years</p>
                   </div>
-                  <div className="h-12 w-px bg-gradient-to-b from-purple-500 to-cyan-500"></div>
+                  <div className="hidden sm:block h-12 w-px bg-gradient-to-b from-purple-500 to-cyan-500"></div>
+                  <div className="block sm:hidden w-full h-px bg-gradient-to-r from-purple-500 to-cyan-500"></div>
                   <div className="text-center">
-                    <p className="text-sm text-gray-400">Projects</p>
-                    <p className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    <p className="text-xs sm:text-sm text-gray-400">Projects</p>
+                    <p className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                       50+
                     </p>
                     <p className="text-xs text-gray-500">Completed</p>
                   </div>
-                  <div className="h-12 w-px bg-gradient-to-b from-purple-500 to-cyan-500"></div>
+                  <div className="hidden sm:block h-12 w-px bg-gradient-to-b from-purple-500 to-cyan-500"></div>
+                  <div className="block sm:hidden w-full h-px bg-gradient-to-r from-purple-500 to-cyan-500"></div>
                   <div className="text-center">
-                    <p className="text-sm text-gray-400">Satisfaction</p>
-                    <p className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                    <p className="text-xs sm:text-sm text-gray-400">Satisfaction</p>
+                    <p className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
                       100%
                     </p>
                     <p className="text-xs text-gray-500">Clients</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
