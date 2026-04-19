@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode: 'class',
   theme: {
     extend: {
       // Optional: You can add custom colors or extend the theme
@@ -10,6 +11,9 @@ export default {
       },
       fontFamily: {
         sevillana: ["Sevillana", "cursive"],
+        inter: ["Inter", "sans-serif"],
+        outfit: ["Outfit", "sans-serif"],
+        syne: ["Syne", "sans-serif"],
       },
 
       animation: {

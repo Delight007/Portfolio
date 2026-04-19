@@ -1,390 +1,408 @@
-import { useContext, useState } from "react";
+import { motion } from "framer-motion";
+import { DiWebplatform } from "react-icons/di";
 import {
+  FaChartLine,
+  FaClock,
   FaCode,
-  FaDatabase,
-  FaEnvelope,
+  FaComments,
   FaLightbulb,
-  FaLock,
-  FaMobileAlt,
-  FaTools,
-  FaUserFriends,
+  FaRocket,
+  FaUsers,
+  FaVideo,
 } from "react-icons/fa";
+import { FiBox, FiShield, FiTarget, FiZap } from "react-icons/fi";
 import {
   SiCloudinary,
   SiCss3,
+  SiDocker,
   SiExpo,
   SiExpress,
   SiFigma,
   SiFirebase,
-  SiFramer,
   SiGit,
-  SiGithub,
   SiHtml5,
   SiJavascript,
+  SiJira,
   SiMongodb,
   SiMui,
-  SiMysql,
   SiNetlify,
   SiNextdotjs,
   SiNodedotjs,
   SiPhp,
   SiReact,
-  SiRedux,
+  SiReactquery,
+  SiReactrouter,
+  SiSlack,
   SiSocketdotio,
+  SiSvelte,
   SiTailwindcss,
+  SiTestinglibrary,
+  SiThreedotjs,
   SiTypescript,
   SiVercel,
 } from "react-icons/si";
-import { TbApi } from "react-icons/tb";
-import { GlobalContext } from "../context/GlobalContext";
-
-// For missing icons, you can use these alternatives
-// Install if needed: npm install react-icons/fi react-icons/io5
-import { IoPhonePortraitOutline } from "react-icons/io5";
+import { TbApi, TbBrandReactNative } from "react-icons/tb";
 
 export default function Skills() {
-  const { setSelectSkill, selectSkill } = useContext(GlobalContext);
+  const techStack = [
+    {
+      name: "Next.js",
+      icon: <SiNextdotjs className="w-7 h-7" style={{ color: "#000000" }} />,
+    },
+    {
+      name: "React",
+      icon: <SiReact className="w-7 h-7" style={{ color: "#61DAFB" }} />,
+    },
+    {
+      name: "TypeScript",
+      icon: <SiTypescript className="w-7 h-7" style={{ color: "#3178C6" }} />,
+    },
+    {
+      name: "Node.js",
+      icon: <SiNodedotjs className="w-7 h-7" style={{ color: "#339933" }} />,
+    },
+    {
+      name: "MongoDB",
+      icon: <SiMongodb className="w-7 h-7" style={{ color: "#47A248" }} />,
+    },
+    {
+      name: "Firebase",
+      icon: <SiFirebase className="w-7 h-7" style={{ color: "#FFCA28" }} />,
+    },
+    {
+      name: "Tailwind",
+      icon: <SiTailwindcss className="w-7 h-7" style={{ color: "#06B6D4" }} />,
+    },
+    {
+      name: "Express",
+      icon: <SiExpress className="w-7 h-7" style={{ color: "#000000" }} />,
+    },
+    {
+      name: "Git",
+      icon: <SiGit className="w-7 h-7" style={{ color: "#F05032" }} />,
+    },
+    {
+      name: "Vercel",
+      icon: <SiVercel className="w-7 h-7" style={{ color: "#000000" }} />,
+    },
+    {
+      name: "Figma",
+      icon: <SiFigma className="w-7 h-7" style={{ color: "#F24E1E" }} />,
+    },
+    {
+      name: "Cloudinary",
+      icon: <SiCloudinary className="w-7 h-7" style={{ color: "#3448C5" }} />,
+    },
+    {
+      name: "HTML5",
+      icon: <SiHtml5 className="w-7 h-7" style={{ color: "#E34F26" }} />,
+    },
+    {
+      name: "CSS3",
+      icon: <SiCss3 className="w-7 h-7" style={{ color: "#1572B6" }} />,
+    },
+    {
+      name: "JavaScript",
+      icon: <SiJavascript className="w-7 h-7" style={{ color: "#F7DF1E" }} />,
+    },
 
-  // Custom icon component for missing icons
-  const AppwriteIcon = () => (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#FD366E" />
-      <path d="M2 17L12 22L22 17L12 12L2 17Z" fill="#FD366E" />
-      <path d="M2 12L12 17L22 12L12 7L2 12Z" fill="#FD366E" />
-    </svg>
-  );
-
-  const ZustandIcon = () => (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-    </svg>
-  );
-
-  const SwiperIcon = () => (
-    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M21 8H3V4h18v4zm0 2H3v4h18v-4zm0 6H3v4h18v-4z" />
-    </svg>
-  );
-
-  // Updated SKILLS array with corrected icon names
-  const SKILLS = [
     {
-      title: "Frontend",
-      icon: <SiReact className="w-6 h-6" />,
-      skills: [
-        { skill: "Next.js", percentage: "95%", icon: <SiNextdotjs /> },
-        { skill: "React.js", percentage: "95%", icon: <SiReact /> },
-        {
-          skill: "React Native",
-          percentage: "85%",
-          icon: <IoPhonePortraitOutline />,
-        },
-        { skill: "TypeScript", percentage: "90%", icon: <SiTypescript /> },
-        { skill: "JavaScript", percentage: "95%", icon: <SiJavascript /> },
-        { skill: "Tailwind CSS", percentage: "95%", icon: <SiTailwindcss /> },
-        { skill: "HTML5", percentage: "98%", icon: <SiHtml5 /> },
-        { skill: "CSS3", percentage: "98%", icon: <SiCss3 /> },
-        { skill: "Material-UI", percentage: "85%", icon: <SiMui /> },
-      ],
+      name: "React Native",
+      icon: (
+        <TbBrandReactNative className="w-7 h-7" style={{ color: "#61DAFB" }} />
+      ),
     },
     {
-      title: "Backend",
-      icon: <SiNodedotjs className="w-6 h-6" />,
-      skills: [
-        { skill: "Node.js", percentage: "90%", icon: <SiNodedotjs /> },
-        { skill: "Express.js", percentage: "90%", icon: <SiExpress /> },
-        { skill: "PHP", percentage: "75%", icon: <SiPhp /> },
-        { skill: "RESTful APIs", percentage: "92%", icon: <TbApi /> },
-        { skill: "JWT Authentication", percentage: "88%", icon: <FaLock /> },
-        { skill: "Firebase Auth", percentage: "85%", icon: <SiFirebase /> },
-      ],
+      name: "Expo",
+      icon: <SiExpo className="w-7 h-7" style={{ color: "#000020" }} />,
     },
     {
-      title: "Database",
-      icon: <FaDatabase className="w-6 h-6" />,
-      skills: [
-        { skill: "Firebase", percentage: "85%", icon: <SiFirebase /> },
-        { skill: "MongoDB", percentage: "80%", icon: <SiMongodb /> },
-        { skill: "MySQL", percentage: "75%", icon: <SiMysql /> },
-        { skill: "Appwrite", percentage: "70%", icon: <AppwriteIcon /> },
-      ],
+      name: "Zustand",
+      icon: <FiZap className="w-7 h-7" style={{ color: "#443E38" }} />,
     },
     {
-      title: "State Management",
-      icon: <SiRedux className="w-6 h-6" />,
-      skills: [
-        { skill: "Zustand", percentage: "85%", icon: <ZustandIcon /> },
-        { skill: "React Query", percentage: "80%", icon: <SiReact /> },
-        { skill: "Context API", percentage: "90%", icon: <FaCode /> },
-        { skill: "Redux", percentage: "75%", icon: <SiRedux /> },
-      ],
+      name: "React Query",
+      icon: <SiReactquery className="w-7 h-7" style={{ color: "#FF4154" }} />,
     },
     {
-      title: "Tools & Platforms",
-      icon: <FaTools className="w-6 h-6" />,
-      skills: [
-        { skill: "Git & GitHub", percentage: "95%", icon: <SiGithub /> },
-        { skill: "Vercel", percentage: "90%", icon: <SiVercel /> },
-        { skill: "Netlify", percentage: "85%", icon: <SiNetlify /> },
-        { skill: "Expo", percentage: "80%", icon: <SiExpo /> },
-        { skill: "Cloudinary", percentage: "75%", icon: <SiCloudinary /> },
-        { skill: "Framer Motion", percentage: "85%", icon: <SiFramer /> },
-        { skill: "Swiper.js", percentage: "80%", icon: <SwiperIcon /> },
-      ],
+      name: "Framer Motion",
+      icon: <FiBox className="w-7 h-7" style={{ color: "#0055FF" }} />,
     },
     {
-      title: "Soft Skills",
-      icon: <FaUserFriends className="w-6 h-6" />,
-      skills: [
-        { skill: "API Integration", percentage: "95%", icon: <TbApi /> },
-        {
-          skill: "Authentication Systems",
-          percentage: "90%",
-          icon: <FaLock />,
-        },
-        {
-          skill: "Real-time Communication",
-          percentage: "85%",
-          icon: <SiSocketdotio />,
-        },
-        {
-          skill: "Responsive Design",
-          percentage: "95%",
-          icon: <FaMobileAlt />,
-        },
-        { skill: "Problem-solving", percentage: "90%", icon: <FaLightbulb /> },
-        {
-          skill: "Team Collaboration",
-          percentage: "92%",
-          icon: <FaUserFriends />,
-        },
-        { skill: "SMTP Integration", percentage: "85%", icon: <FaEnvelope /> },
-      ],
+      name: "Jira",
+      icon: <SiJira className="w-7 h-7" style={{ color: "#0052CC" }} />,
+    },
+    {
+      name: "Slack",
+      icon: <SiSlack className="w-7 h-7" style={{ color: "#4A154B" }} />,
+    },
+    {
+      name: "Agora (Video Call)",
+      icon: <FaVideo className="w-7 h-7" style={{ color: "#0097B2" }} />,
+    },
+    {
+      name: "WebSocket",
+      icon: <SiSocketdotio className="w-7 h-7" style={{ color: "#010101" }} />,
+    },
+    {
+      name: "Three.js",
+      icon: <SiThreedotjs className="w-7 h-7" style={{ color: "#000000" }} />,
+    },
+    {
+      name: "Docker",
+      icon: <SiDocker className="w-7 h-7" style={{ color: "#2496ED" }} />,
+    },
+    {
+      name: "EJS",
+      icon: <DiWebplatform className="w-7 h-7" style={{ color: "#B4CA65" }} />,
+    },
+    {
+      name: "Svelte",
+      icon: <SiSvelte className="w-7 h-7" style={{ color: "#FF3E00" }} />,
+    },
+    {
+      name: "Mantine UI",
+      icon: <SiReactrouter className="w-7 h-7" style={{ color: "#339AF0" }} />,
+    },
+    {
+      name: "Material UI",
+      icon: <SiMui className="w-7 h-7" style={{ color: "#007FFF" }} />,
+    },
+    {
+      name: "React Testing Library",
+      icon: (
+        <SiTestinglibrary className="w-7 h-7" style={{ color: "#E33332" }} />
+      ),
+    },
+    {
+      name: "Socket.IO",
+      icon: <SiSocketdotio className="w-7 h-7" style={{ color: "#010101" }} />,
+    },
+    {
+      name: "Formik",
+      icon: <TbApi className="w-7 h-7" style={{ color: "#2C6BFF" }} />,
+    },
+    {
+      name: "Yup",
+      icon: <FaCode className="w-7 h-7" style={{ color: "#32CD32" }} />,
+    },
+    {
+      name: "Netlify",
+      icon: <SiNetlify className="w-7 h-7" style={{ color: "#00C7B7" }} />,
+    },
+    {
+      name: "PHP",
+      icon: <SiPhp className="w-7 h-7" style={{ color: "#777BB4" }} />,
     },
   ];
 
-  const [activeCategory, setActiveCategory] = useState(SKILLS[0]);
-
-  function handleClick(data) {
-    setActiveCategory(data);
-    setSelectSkill(data);
-  }
-
-  // Technology stack for quick view
-  const techStack = [
-    { name: "Next.js", icon: <SiNextdotjs className="w-8 h-8" /> },
-    { name: "React", icon: <SiReact className="w-8 h-8" /> },
-    { name: "TypeScript", icon: <SiTypescript className="w-8 h-8" /> },
-    { name: "Node.js", icon: <SiNodedotjs className="w-8 h-8" /> },
-    { name: "MongoDB", icon: <SiMongodb className="w-8 h-8" /> },
-    { name: "Firebase", icon: <SiFirebase className="w-8 h-8" /> },
-    { name: "Tailwind", icon: <SiTailwindcss className="w-8 h-8" /> },
-    { name: "Express", icon: <SiExpress className="w-8 h-8" /> },
-    { name: "Git", icon: <SiGit className="w-8 h-8" /> },
-    { name: "Vercel", icon: <SiVercel className="w-8 h-8" /> },
-    { name: "Figma", icon: <SiFigma className="w-8 h-8" /> },
-    { name: "Cloudinary", icon: <SiCloudinary className="w-8 h-8" /> },
+  // Soft Skills data
+  const softSkills = [
+    {
+      title: "Problem Solving",
+      icon: <FiTarget className="w-6 h-6" />,
+      description:
+        "Break down complex issues, identify root causes, and implement efficient, scalable solutions.",
+    },
+    {
+      title: "Team Collaboration",
+      icon: <FaUsers className="w-6 h-6" />,
+      description:
+        "Work seamlessly with designers, product managers, and developers across time zones.",
+    },
+    {
+      title: "Agile Delivery",
+      icon: <FaRocket className="w-6 h-6" />,
+      description:
+        "Prioritize tasks, estimate accurately, and deliver MVPs on time without compromising quality.",
+    },
+    {
+      title: "Fast Learner",
+      icon: <FaChartLine className="w-6 h-6" />,
+      description:
+        "Quickly adopt new frameworks, libraries, and best practices to stay ahead of the curve.",
+    },
+    {
+      title: "Communication",
+      icon: <FaComments className="w-6 h-6" />,
+      description:
+        "Translate technical concepts for non‑technical stakeholders and document clearly.",
+    },
+    {
+      title: "Time Management",
+      icon: <FaClock className="w-6 h-6" />,
+      description:
+        "Balance multiple projects, meet deadlines, and maintain work‑life harmony.",
+    },
+    {
+      title: "Creative Thinking",
+      icon: <FaLightbulb className="w-6 h-6" />,
+      description:
+        "Approach challenges from fresh angles and propose innovative UX/UI solutions.",
+    },
+    {
+      title: "Resilience",
+      icon: <FiShield className="w-6 h-6" />,
+      description:
+        "Stay calm under pressure, learn from failures, and persist through tough debugging sessions.",
+    },
   ];
 
   return (
     <section
       id="skills"
-      className="relative py-20 overflow-hidden bg-gradient-to-b from-gray-900 to-black"
+      className="container w-full py-28 relative overflow-hidden font-syne bg-transparent"
     >
-      {/* Animated Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-900/10 rounded-full blur-3xl"></div>
-      </div>
+      <div className="mx-auto max-w-6xl relative z-10 px-4 lg:px-0">
+        {/* Section label */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center gap-3 mb-6"
+        >
+          <em className="inline-flex items-center gap-2 px-3 py-1 rounded-full border-2 border-gray-300/40 dark:border-gray-700/40 text-black dark:text-white text-xs font-medium tracking-wide uppercase bg-white/20 dark:bg-black/20 backdrop-blur-sm">
+            <FaCode className="w-3 h-3" />
+            Tech Stack
+          </em>
+          <div className="flex-1 h-px bg-gradient-to-r from-gray-300/40 dark:from-gray-700/30 to-transparent" />
+        </motion.div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 mb-6">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-            <span className="text-sm font-medium text-gray-300">
-              Technical Stack
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-[1.1] tracking-tight mb-5 max-w-3xl"
+        >
+          Technologies{" "}
+          <span className="relative inline-block">
+            <span
+              className="!font-syne !text-transparent lg:!text-6xl !text-2xl !font-semibold
+              ![-webkit-text-stroke:1px_black] dark:![-webkit-text-stroke:1px_white] !p-3 !rounded-full border-b-2 border-black dark:border-white"
+            >
+              I Work With
             </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            My{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-              Technical
-            </span>{" "}
-            Arsenal
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            A comprehensive collection of technologies and tools I use to build
-            modern, scalable web applications
-          </p>
+          </span>
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="lg:text-lg text-sm text-gray-500 dark:text-gray-400 max-w-2xl mb-12 leading-relaxed"
+        >
+          Modern tools, frameworks, and platforms I use daily to build fast,
+          scalable, and beautiful applications.
+        </motion.p>
+
+        {/* Tech Stack Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          {techStack.map((tech, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.4, delay: (idx % 6) * 0.1 }}
+              className="group relative rounded-xl border border-white/20 bg-transparent p-4 text-center transition-all duration-300 hover:border-white/40 hover:-translate-y-1"
+            >
+              {/* Gradient Background */}
+              <div className="absolute inset-0 pointer-events-none z-0">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-purple-900/5 to-cyan-900/5 rounded-2xl"></div>
+              </div>
+              {/* Icon with brand color */}
+              <div className="mb-2 flex justify-center transition-transform group-hover:scale-110">
+                {tech.icon}
+              </div>
+              {/* Label */}
+              <span className="!text-xs !font-medium !text-gray-500 !group-hover:text-white !font-syne !cursor-pointer">
+                {tech.name}
+              </span>
+            </motion.div>
+          ))}
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Left Column - Categories */}
-          <div className="lg:col-span-1">
-            <div className="space-y-4">
-              {SKILLS.map((item) => (
-                <button
-                  key={item.title}
-                  onClick={() => handleClick(item)}
-                  className={`w-full flex items-center gap-4 p-4 rounded-2xl transition-all duration-300 group ${
-                    activeCategory.title === item.title
-                      ? "bg-gradient-to-r from-purple-900/40 to-blue-900/40 border-2 border-purple-500 shadow-2xl shadow-purple-500/20"
-                      : "bg-gray-900/30 border border-gray-800 hover:border-purple-500/50 hover:bg-gray-900/50"
-                  }`}
-                >
-                  <div
-                    className={`p-3 rounded-xl transition-colors ${
-                      activeCategory.title === item.title
-                        ? "bg-gradient-to-br from-purple-600 to-blue-600"
-                        : "bg-gray-800 group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-blue-600"
-                    }`}
-                  >
-                    {item.icon}
-                  </div>
-                  <div className="flex-1 text-left">
-                    <h3
-                      className={`font-semibold text-lg ${
-                        activeCategory.title === item.title
-                          ? "text-white"
-                          : "text-gray-300"
-                      }`}
-                    >
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      {item.skills.length} skills
-                    </p>
-                  </div>
-                  <div
-                    className={`w-2 h-8 rounded-full transition-colors ${
-                      activeCategory.title === item.title
-                        ? "bg-gradient-to-b from-purple-400 to-cyan-400"
-                        : "bg-gray-700 group-hover:bg-purple-500/50"
-                    }`}
-                  ></div>
-                </button>
-              ))}
-            </div>
+        {/* ─── Professional Soft Skills Section ─── */}
+        <div className="mt-24">
+          {/* Section label for soft skills */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <em className="inline-flex items-center gap-2 px-3 py-1 rounded-full border-2 border-gray-300/40 dark:border-gray-700/40 text-black dark:text-white text-xs font-medium tracking-wide uppercase bg-white/20 dark:bg-black/20 backdrop-blur-sm">
+              <FaUsers className="w-3 h-3" />
+              Beyond Code
+            </em>
+            <div className="flex-1 h-px bg-gradient-to-r from-gray-300/40 dark:from-gray-700/30 to-transparent" />
+          </motion.div>
 
-            {/* Tech Stack Overview */}
-            <div className="mt-8 p-6 rounded-2xl bg-gray-900/50 border border-gray-800">
-              <h4 className="text-lg font-semibold text-white mb-4">
-                Technology Stack
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "Next.js",
-                  "React",
-                  "TypeScript",
-                  "Node.js",
-                  "MongoDB",
-                  "Tailwind",
-                  "Firebase",
-                ].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-gray-800/50 rounded-full text-sm text-gray-300"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Skills Details */}
-          <div className="lg:col-span-2">
-            <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-3xl p-6 lg:p-8 h-full">
-              <div className="flex items-center justify-between mb-8">
-                <div>
-                  <h3 className="text-3xl font-bold text-white mb-2">
-                    {activeCategory.title}
-                  </h3>
-                  <p className="text-gray-400">
-                    Detailed proficiency breakdown
-                  </p>
-                </div>
-                <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-900/30 to-blue-900/30 border border-gray-700">
-                  {activeCategory.icon}
-                </div>
-              </div>
-
-              {/* Skills Grid */}
-              <div className="grid md:grid-cols-2 gap-6">
-                {activeCategory.skills.map((item, index) => (
-                  <div
-                    key={index}
-                    className="group p-4 rounded-xl bg-gray-900/30 border border-gray-800 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:-translate-y-1"
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 rounded-lg bg-gray-800 group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-blue-600 transition-colors">
-                          {item.icon}
-                        </div>
-                        <span className="font-medium text-gray-200">
-                          {item.skill}
-                        </span>
-                      </div>
-                      <span className="text-purple-400 font-semibold">
-                        {item.percentage}
-                      </span>
-                    </div>
-                    <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: item.percentage }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Additional Info */}
-              <div className="mt-8 pt-8 border-t border-gray-800">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="text-center p-4 rounded-xl bg-gray-900/30 border border-gray-800">
-                    <div className="text-2xl font-bold text-white mb-2">2+</div>
-                    <div className="text-sm text-gray-400">
-                      Years Experience
-                    </div>
-                  </div>
-                  <div className="text-center p-4 rounded-xl bg-gray-900/30 border border-gray-800">
-                    <div className="text-2xl font-bold text-white mb-2">8+</div>
-                    <div className="text-sm text-gray-400">Projects Built</div>
-                  </div>
-                  <div className="text-center p-4 rounded-xl bg-gray-900/30 border border-gray-800">
-                    <div className="text-2xl font-bold text-white mb-2">
-                      100%
-                    </div>
-                    <div className="text-sm text-gray-400">
-                      Client Satisfaction
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Quick Access Tech Stack */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-white text-center mb-8">
-            Technologies I Work With
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {techStack.map((tech, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-900/30 border border-gray-800 hover:border-purple-500/50 transition-colors group"
+          <motion.h2
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-[1.1] tracking-tight mb-5 max-w-3xl"
+          >
+            Professional{" "}
+            <span className="relative inline-block">
+              <span
+                className="!font-syne !text-transparent lg:!text-6xl !font-semibold
+                ![-webkit-text-stroke:1px_black] dark:![-webkit-text-stroke:1px_white] !p-3 !rounded-full border-b-2 border-black dark:border-white"
               >
-                <div className="text-purple-400 group-hover:text-cyan-400 transition-colors mb-2">
-                  {tech.icon}
+                Soft Skills
+              </span>
+            </span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:text-lg text-sm text-gray-500 dark:text-gray-400 max-w-2xl mb-12 leading-relaxed"
+          >
+            The human side of engineering – communication, collaboration, and
+            mindset that turn good code into great products.
+          </motion.p>
+
+          {/* Soft Skills Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {softSkills.map((skill, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="group relative rounded-2xl border border-white/20 bg-transparent p-6 transition-all duration-300 hover:border-white/40 hover:-translate-y-1 overflow-hidden"
+              >
+                {/* Gradient Background */}
+                <div className="absolute inset-0 pointer-events-none z-0">
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-purple-900/5 to-cyan-900/5 rounded-2xl"></div>
                 </div>
-                <span className="text-sm text-gray-300 group-hover:text-white">
-                  {tech.name}
-                </span>
-              </div>
+
+                {/* Icon */}
+                <div className="w-12 h-12 rounded-xl  bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-4 group-hover:bg-emerald-500 transition-colors duration-300 text-emerald-500  group-hover:text-white">
+                  {skill.icon}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-bold text-black dark:text-white mb-2">
+                  {skill.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {skill.description}
+                </p>
+              </motion.div>
             ))}
           </div>
         </div>

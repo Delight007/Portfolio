@@ -1,8 +1,7 @@
-import styles from "./foot.module.css";
 export default function Footer() {
   return (
-    <div className={styles.Footer}>
-      <p>@ ganalevilafiya 2024</p>
-    </div>
+    <footer className="py-6 text-center text-slate-500 dark:text-gray-400 border-t border-slate-200 dark:border-gray-800 transition-colors duration-300">
+      <p className="text-sm"> © Gana Lafiya Levi 2026</p>
+    </footer>
   );
 }

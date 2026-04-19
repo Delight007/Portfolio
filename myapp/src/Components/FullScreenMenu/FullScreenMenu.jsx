@@ -25,6 +25,7 @@ const socials = [
   { icon: FaInstagram, label: "Instagram", href: "https://instagram.com/" },
 ];
 
+// Stagger variants for menu items
 const containerVariants = {
   hidden: {},
   visible: {
@@ -69,12 +70,19 @@ const socialVariants = {
   },
 };
 
-export default function MobileNav({
-  openMenu,
-  toggleMenu,
-  smoothScrollToSection,
-}) {
+export default function FullScreenMenu({ isOpen, toggleMenu }) {
   const { theme } = useContext(GlobalContext);
+
+  function smoothScrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navbarHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - navbarHeight;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+  }
 
   function handleNavClick(sectionId) {
     toggleMenu();
@@ -83,9 +91,9 @@ export default function MobileNav({
 
   return (
     <AnimatePresence>
-      {openMenu && (
+      {isOpen && (
         <motion.div
-          className="fullscreen-menu "
+          className="fullscreen-menu"
           initial={{ clipPath: "circle(0% at calc(100% - 60px) 40px)" }}
           animate={{ clipPath: "circle(150% at calc(100% - 60px) 40px)" }}
           exit={{ clipPath: "circle(0% at calc(100% - 60px) 40px)" }}
@@ -98,22 +106,7 @@ export default function MobileNav({
             </h2>
           </div>
 
-          {/* Close button - moved outside to fix it to the viewport instead of the scrollable inner container */}
-          <button
-            onClick={toggleMenu}
-            className="menu-toggle-btn absolute top-5 right-6 md:hidden"
-            style={{ zIndex: 10001, position: "fixed" }}
-            aria-label="Close Menu"
-          >
-            <span className="menu-toggle-label font-syne text-black dark:text-white lg:text-lg text-sm">Close</span>
-            <div className="menu-toggle-icon lg:w-10 lg:h-10 w-6 h-6">
-              <span className="menu-line menu-line-top menu-line-cross-top" />
-              <span className="menu-line menu-line-bottom menu-line-cross-bottom" />
-            </div>
-          </button>
-
           <div className="fullscreen-menu-inner relative z-10">
-
             {/* Left side — numbered menu items */}
             <motion.nav
               className="menu-nav-list"
@@ -146,10 +139,7 @@ export default function MobileNav({
               animate="visible"
               exit="exit"
             >
-              <motion.p
-                className="menu-socials-title"
-                variants={socialVariants}
-              >
+              <motion.p className="menu-socials-title" variants={socialVariants}>
                 Connect
               </motion.p>
               {socials.map((social) => (
@@ -163,9 +153,7 @@ export default function MobileNav({
                   whileHover={{ x: 6 }}
                 >
                   <social.icon className="menu-social-icon" />
-                  <span className="!font-syne !text-black dark:!text-white">
-                    {social.label}
-                  </span>
+                  <span className="!font-syne !text-black">{social.label}</span>
                 </motion.a>
               ))}
             </motion.div>

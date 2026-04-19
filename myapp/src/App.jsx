@@ -1,20 +1,36 @@
+import { useState } from "react";
+import About from "./Components/About/About";
 import ContactMe from "./Components/ContactMe/contact";
 import GlobalProvider from "./Components/context/GlobalContext";
+import Experience from "./Components/Experience/experience";
 import Footer from "./Components/Footer/foot";
 import Hero from "./Components/hero/heroo";
 import Nav from "./Components/Navbar/Nav";
+import Projects from "./Components/Projects/work";
+import Services from "./Components/Service/service";
+// import Projects from "./Components/Project/project";
 import Skills from "./Components/skill/Skills";
-import WorkExperience from "./Components/WorkExperience/work";
+import SplashScreen from "./Components/SplashScreen/SplashScreen";
+
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <GlobalProvider>
-      <div className="min-h-screen bg-[#060417] text-white font-poppins">
+      {isLoading && <SplashScreen onComplete={() => setIsLoading(false)} />}
+
+      <div
+        className="min-h-screen font-inter transition-colors duration-300 flex flex-col justify-center items-center"
+      >
         <Nav />
 
-        <div className="mx-auto max-w-[1300px] relative px-6 2xl:px-0">
+        <div className="mx-auto w-full relative  2xl:px-0 ">
           <Hero />
+          <About />
+          <Experience />
+          <Services />
+          <Projects />
           <Skills />
-          <WorkExperience />
           <ContactMe />
           <Footer />
         </div>

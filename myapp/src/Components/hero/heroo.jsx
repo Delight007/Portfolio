@@ -1,272 +1,160 @@
-import { useEffect, useState } from "react";
-import { AiOutlineX } from "react-icons/ai";
-import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
-
-import {
-  SiNextdotjs,
-  SiReact,
-  SiTailwindcss,
-  SiTypescript,
-} from "react-icons/si";
-import profile from "../img/profile2.jpg";
+import { motion } from "framer-motion";
+import { useContext, useState } from "react";
+import { FaMoon, FaSun } from "react-icons/fa";
+import { IoIosArrowDown } from "react-icons/io";
+import { PiLineVerticalLight } from "react-icons/pi";
+import { useScrollX } from "../../utilis/useScrollX";
+import { GlobalContext } from "../context/GlobalContext";
+import FullScreenMenu from "../FullScreenMenu/FullScreenMenu";
+import LogoB from "../img/LogoB.png";
+import LogoW from "../img/LogoW.png";
 
 export default function Hero() {
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const roles = [
-    "Front-End Developer",
-    "React Specialist",
-    "UI/UX Enthusiast",
-    "Problem Solver",
-  ];
+  const { theme, toggleTheme } = useContext(GlobalContext);
+  const scrollX = useScrollX(400);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  function toggleMenu() {
+    setMenuOpen((prev) => !prev);
+  }
+
+  // Determine the label text
+  const menuLabel = menuOpen ? "Close" : isHovered ? "Open" : "Menu";
 
   return (
-    <section
-      id="hero"
-      className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white min-h-screen flex items-center py-20"
-    >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-      </div>
+    <>
+      <FullScreenMenu isOpen={menuOpen} toggleMenu={toggleMenu} />
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <div className="space-y-8">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-sm font-medium">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              Open to Opportunities
+      <section
+        id="hero"
+        className="container  lg:min-h-screen py-5 font-syne w-full relative overflow-x-hidden"
+      >
+        {/* content */}
+        <div className="mx-auto max-w-6xl z-10 px-4 lg:px-0">
+          <nav className="flex justify-between items-center">
+            <div className="w-28 h-auto flex items-center">
+              <img
+                src={LogoB}
+                alt="Logo"
+                className="w-10 h-20 md:w-20 md:h-28 lg:w-20 lg:h-28 dark:hidden drop-shadow-[1px_0_0_black] drop-shadow-[0_1px_0_black] drop-shadow-[-1px_0_0_black] drop-shadow-[0_-1px_0_black]"
+              />
+              <img
+                src={LogoW}
+                alt="Logo"
+                className="w-10 h-20 md:w-20 md:h-28 lg:w-20 lg:h-28 hidden dark:block drop-shadow-[1px_0_0_white] drop-shadow-[0_1px_0_white] drop-shadow-[-1px_0_0_white] drop-shadow-[0_-1px_0_white]"
+              />
             </div>
+            <div className="flex items-center lg:gap-4 gap-2">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-full bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/20 transition-all duration-300 focus:outline-none"
+                aria-label="Toggle Theme"
+              >
+                {theme === "dark" ? (
+                  <FaSun className="lg:text-lg text-sm text-[#FFD700]" />
+                ) : (
+                  <FaMoon className="lg:text-lg text-sm text-black" />
+                )}
+              </button>
 
-            {/* Title with Animated Role */}
-            <div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400">
-                  Gana Lafiya
+              {/* Animated menu button */}
+              <button
+                onClick={toggleMenu}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                className="menu-toggle-btn"
+                aria-label="Toggle Menu"
+                style={{ zIndex: 10001 }}
+              >
+                <span className="menu-toggle-label !font-syne lg:text-lg text-sm">{menuLabel}</span>
+                <div className="menu-toggle-icon lg:w-10 lg:h-10 w-5 h-5">
+                  <span
+                    className={`menu-line menu-line-top ${menuOpen ? "menu-line-cross-top" : ""}`}
+                  />
+                  <span
+                    className={`menu-line menu-line-bottom ${menuOpen ? "menu-line-cross-bottom" : ""}`}
+                  />
+                </div>
+              </button>
+            </div>
+          </nav>
+
+          <div className="mt-8 md:mt-18 text-left ml-0 lg:ml-20">
+            {/* Main heading - exactly like reference image */}
+            <em>
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight">
+                Solution expert,
+                <br />
+                creative →
+                <span
+                  className=" !font-syne  !text-transparent dark:!text-transparent lg:!text-8xl !font-semibold
+    ![-webkit-text-stroke:1px_black] dark:![-webkit-text-stroke:1px_white]"
+                >
+                  focused
                 </span>
                 <br />
-                Levi
+                full-stack developer
               </h1>
-              <div className="flex items-center gap-3 text-xl sm:text-2xl text-gray-300 mb-6 h-10">
-                <div className="relative w-48 sm:w-56 md:w-64 h-10">
-                  {roles.map((role, index) => (
-                    <div
-                      key={role}
-                      className={`absolute top-0 left-0 transition-all duration-500 ease-in-out ${
-                        index === currentRoleIndex
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 translate-y-4"
-                      }`}
-                    >
-                      <span className="flex items-center gap-3">
-                        {role}
-                        <div className="w-12 h-px bg-gradient-to-r from-purple-500 to-cyan-500"></div>
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Description */}
-            <p className="text-lg text-gray-300 leading-relaxed max-w-2xl">
-              I build exceptional digital experiences that are fast, accessible,
-              visually appealing, and responsive. Let's bring your ideas to life
-              with modern web technologies.
-            </p>
-
-            {/* Quick Intro Points */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                <span className="text-gray-300">
-                  2+ years of professional experience
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                <span className="text-gray-300">
-                  8+ projects delivered successfully
-                </span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="text-gray-300">
-                  Specialized in React & Next.js ecosystems
-                </span>
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a
-                href="#contact"
-                className="group w-full sm:flex-1 sm:max-w-xs inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl"
-              >
-                <FiMail className="group-hover:scale-110 transition-transform" />
-                Contact Me
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#projects"
-                className="w-full sm:flex-1 sm:max-w-xs inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 border border-gray-700 rounded-lg font-semibold hover:border-purple-500 hover:text-purple-400 transition-all duration-300"
-              >
-                View My Work
-              </a>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-4 pt-6">
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://github.com/Delight007"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full border border-gray-700 hover:border-purple-500 hover:text-purple-400 hover:bg-purple-500/10 transition-all duration-300 transform hover:-translate-y-1"
-                  aria-label="GitHub"
-                >
-                  <FiGithub className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/levi-gana-462102348/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full border border-gray-700 hover:border-blue-500 hover:text-blue-400 hover:bg-blue-500/10 transition-all duration-300 transform hover:-translate-y-1"
-                  aria-label="LinkedIn"
-                >
-                  <FiLinkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://x.com/levi_gana"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full border border-gray-700 hover:border-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all duration-300 transform hover:-translate-y-1"
-                  aria-label="Twitter"
-                >
-                  <AiOutlineX className="w-5 h-5" />
-                </a>
-              </div>
-              <div className="sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-800">
-                <a
-                  href="mailto:ganalafiyalevi@gmail.com"
-                  className="text-sm text-gray-400 hover:text-cyan-400 transition-colors break-all sm:break-normal"
-                >
-                  ganalafiyalevi@gmail.com
-                </a>
-              </div>
-            </div>
+            </em>
           </div>
+          {/* scrool to the next component  */}
+          <div className="flex flex-col text-center mt-12 lg:-mt-4 cursor-pointer">
+            <button
+              onClick={() => {
+                const nextSection = document.getElementById("services");
+                if (nextSection) {
+                  nextSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="!text-black dark:!text-white !w-10 !h-20 flex flex-col items-center justify-center -space-y-5 focus:outline-none"
+              aria-label="Scroll to next section"
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+              }}
+            >
+              <h3 className="[writing-mode:vertical-rl] rotate-180 text-sm lg:text-lg tracking-widest text-gray-400">
+                Scroll
+              </h3>
 
-          {/* Profile Image Section */}
-          <div className="relative">
-            {/* Main Profile Image */}
-            <div className="relative mx-auto max-w-md">
-              <div className="relative z-10">
-                <div className="relative overflow-hidden rounded-2xl group">
-                  <img
-                    src={profile}
-                    alt="Gana Lafiya Levi"
-                    className="w-full h-auto rounded-2xl shadow-2xl border-4 border-gray-800 transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-
-                {/* Floating Tech Badges - Hidden on mobile, shown on md+ screens */}
-                <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 animate-float hidden md:block">
-                  <TechBadge
-                    icon={<SiNextdotjs className="w-5 h-5 md:w-6 md:h-6 text-white" />}
-                    label="Next.js"
-                    bgColor="bg-gradient-to-br from-gray-900 to-black"
-                  />
-                </div>
-                <div className="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 animate-float animation-delay-1000 hidden md:block">
-                  <TechBadge
-                    icon={<SiTypescript className="w-5 h-5 md:w-6 md:h-6 text-blue-400" />}
-                    label="TypeScript"
-                    bgColor="bg-gradient-to-br from-blue-900/40 to-blue-900/20"
-                  />
-                </div>
-                <div className="absolute top-1/2 -right-4 md:-right-8 animate-float animation-delay-2000 hidden md:block">
-                  <TechBadge
-                    icon={<SiReact className="w-5 h-5 md:w-6 md:h-6 text-cyan-400" />}
-                    label="React"
-                    bgColor="bg-gradient-to-br from-cyan-900/40 to-cyan-900/20"
-                  />
-                </div>
-                <div className="absolute bottom-4 -left-4 md:bottom-8 md:-left-8 animate-float animation-delay-3000 hidden md:block">
-                  <TechBadge
-                    icon={<SiTailwindcss className="w-5 h-5 md:w-6 md:h-6 text-teal-400" />}
-                    label="Tailwind"
-                    bgColor="bg-gradient-to-br from-teal-900/40 to-teal-900/20"
-                  />
-                </div>
-              </div>
-
-              {/* Decorative Border */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-600 -z-10 blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-
-              {/* Experience Card
-              <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-900/90 backdrop-blur-sm border border-gray-700 rounded-xl p-3 sm:p-4 shadow-2xl w-11/12 sm:w-4/5 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
-                  <div className="text-center">
-                    <p className="text-xs sm:text-sm text-gray-400">Experience</p>
-                    <p className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                      3+
-                    </p>
-                    <p className="text-xs text-gray-500">Years</p>
-                  </div>
-                  <div className="hidden sm:block h-12 w-px bg-gradient-to-b from-purple-500 to-cyan-500"></div>
-                  <div className="block sm:hidden w-full h-px bg-gradient-to-r from-purple-500 to-cyan-500"></div>
-                  <div className="text-center">
-                    <p className="text-xs sm:text-sm text-gray-400">Projects</p>
-                    <p className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                      50+
-                    </p>
-                    <p className="text-xs text-gray-500">Completed</p>
-                  </div>
-                  <div className="hidden sm:block h-12 w-px bg-gradient-to-b from-purple-500 to-cyan-500"></div>
-                  <div className="block sm:hidden w-full h-px bg-gradient-to-r from-purple-500 to-cyan-500"></div>
-                  <div className="text-center">
-                    <p className="text-xs sm:text-sm text-gray-400">Satisfaction</p>
-                    <p className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                      100%
-                    </p>
-                    <p className="text-xs text-gray-500">Clients</p>
-                  </div>
-                </div>
-              </div> */}
-            </div>
+              <motion.div
+                initial={{ scaleY: 1 }}
+                animate={{ scaleY: [1, 0.3, 1] }}
+                transition={{
+                  duration: 1.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="origin-center"
+              >
+                <PiLineVerticalLight className="lg:text-7xl text-5xl font-extralight" />
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{
+                  duration: 1,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <IoIosArrowDown className="lg:text-3xl text-xl font-extralight lg:-mt-2 mt-0" />
+              </motion.div>
+            </button>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-/* Reusable Tech Badge Component with Label */
-function TechBadge({ icon, label, bgColor }) {
-  return (
-    <div className="group relative">
-      <div
-        className={`${bgColor} backdrop-blur-sm p-3 rounded-full border border-gray-700 shadow-xl transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:border-cyan-500`}
-      >
-        {icon}
-      </div>
-      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap">
-        <div className="bg-gray-900 text-xs text-white px-2 py-1 rounded border border-gray-700">
-          {label}
-        </div>
-      </div>
-    </div>
+        {/* Developer background underlay */}
+        <motion.div
+          className="absolute ml-10 lg:ml-9rem lg:top-0 -top-10 left-0 h-full flex items-center pointer-events-none select-none z-0 font-syne"
+          animate={{ x: -scrollX }}
+          transition={{ type: "tween", ease: "easeOut", duration: 0.5 }}
+        >
+          <h2 className="text-[8rem] sm:text-[14rem] md:text-[18rem] lg:text-[18rem] font-bold text-gray-400 opacity-20 whitespace-nowrap font-syne leading-none mt-10">
+            Developer
+          </h2>
+        </motion.div>
+      </section>
+    </>
   );
 }
