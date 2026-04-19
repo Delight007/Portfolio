@@ -8,9 +8,6 @@ import {
   FiSmartphone,
   FiZap,
 } from "react-icons/fi";
-import LogoB from "../img/LogoB.png";
-import LogoW from "../img/LogoW.png";
-
 export default function About() {
   const services = [
     {
@@ -120,17 +117,8 @@ export default function About() {
                 <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-purple-900/5 to-cyan-900/5 rounded-2xl"></div>
               </div>
               <div className="relative z-10">
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-purple-500/20">
-                  <img
-                    src={LogoB}
-                    alt="Logo"
-                    className="w-20 h-auto dark:hidden drop-shadow-[1px_0_0_black] drop-shadow-[0_1px_0_black] drop-shadow-[-1px_0_0_black] drop-shadow-[0_-1px_0_black]"
-                  />
-                  <img
-                    src={LogoW}
-                    alt="Logo"
-                    className="w-20 h-auto hidden dark:block drop-shadow-[1px_0_0_white] drop-shadow-[0_1px_0_white] drop-shadow-[-1px_0_0_white] drop-shadow-[0_-1px_0_white]"
-                  />
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-white font-bold text-xl ">
+                   <span className="logo-text text-xl !text-black">&lt;/&gt;</span>
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-emerald-500  uppercase tracking-widest mb-1">

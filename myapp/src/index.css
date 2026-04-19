@@ -169,6 +169,13 @@ section {
   filter: drop-shadow(0 0 20px rgba(126, 97, 231, 0.6)) drop-shadow(0 0 40px rgba(126, 97, 231, 0.3));
 }
 
+.logo-text {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  @apply text-black dark:text-white transition-colors duration-300;
+}
+
 /* ===== Animated Menu Toggle Button ===== */
 .menu-toggle-btn {
   display: flex;

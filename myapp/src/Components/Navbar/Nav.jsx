@@ -3,8 +3,6 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import MobileNav from "../Mobilenav/MobileNav";
 import { GlobalContext } from "../context/GlobalContext";
-import LogoB from "../img/LogoB.png";
-import LogoW from "../img/LogoW.png";
 
 export default function Nav() {
   const [openMenu, setOpenMenu] = useState(false);
@@ -87,16 +85,7 @@ export default function Nav() {
       >
         <div className="w-full flex justify-between items-center px-6 mx-auto">
           <div className="flex items-center">
-            <img
-              src={LogoB}
-              alt="Logo"
-              className="h-8 w-auto sm:h-10 dark:hidden drop-shadow-[0.5px_0_0_black] drop-shadow-[0_0.5px_0_black] drop-shadow-[-0.5px_0_0_black] drop-shadow-[0_-0.5px_0_black]"
-            />
-            <img
-              src={LogoW}
-              alt="Logo"
-              className="h-8 w-auto sm:h-10 hidden dark:block drop-shadow-[0.5px_0_0_white] drop-shadow-[0_0.5px_0_white] drop-shadow-[-0.5px_0_0_white] drop-shadow-[0_-0.5px_0_white]"
-            />
+            <span className="logo-text text-2xl lg:text-3xl">&lt;/&gt;</span>
           </div>
 
           <div className="hidden md:flex items-center space-x-2 relative">

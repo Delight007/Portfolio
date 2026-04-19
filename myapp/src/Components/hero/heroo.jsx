@@ -6,8 +6,6 @@ import { PiLineVerticalLight } from "react-icons/pi";
 import { useScrollX } from "../../utilis/useScrollX";
 import { GlobalContext } from "../context/GlobalContext";
 import FullScreenMenu from "../FullScreenMenu/FullScreenMenu";
-import LogoB from "../img/LogoB.png";
-import LogoW from "../img/LogoW.png";
 
 export default function Hero() {
   const { theme, toggleTheme } = useContext(GlobalContext);
@@ -33,17 +31,8 @@ export default function Hero() {
         {/* content */}
         <div className="mx-auto max-w-6xl z-10 px-4 lg:px-0">
           <nav className="flex justify-between items-center">
-            <div className="w-28 h-auto flex items-center">
-              <img
-                src={LogoB}
-                alt="Logo"
-                className="w-10 h-20 md:w-20 md:h-28 lg:w-20 lg:h-28 dark:hidden drop-shadow-[1px_0_0_black] drop-shadow-[0_1px_0_black] drop-shadow-[-1px_0_0_black] drop-shadow-[0_-1px_0_black]"
-              />
-              <img
-                src={LogoW}
-                alt="Logo"
-                className="w-10 h-20 md:w-20 md:h-28 lg:w-20 lg:h-28 hidden dark:block drop-shadow-[1px_0_0_white] drop-shadow-[0_1px_0_white] drop-shadow-[-1px_0_0_white] drop-shadow-[0_-1px_0_white]"
-              />
+            <div className="h-auto flex items-center">
+               <span className="logo-text text-2xl lg:text-3xl">&lt;/&gt;</span>
             </div>
             <div className="flex items-center lg:gap-4 gap-2">
               <button

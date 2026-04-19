@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import LogoW from "../img/LogoW.png";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const SplashScreen = ({ onComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -51,7 +50,7 @@ const SplashScreen = ({ onComplete }) => {
               animate={{ opacity: [0, 0.5, 0.3], scale: [0.5, 1.2, 1] }}
               transition={{ duration: 2, ease: "easeOut" }}
             />
-            <img src={LogoW} alt="Logo" className="splash-logo" />
+            <span className="logo-text text-6xl md:text-8xl relative z-10 !text-white ">&lt;/&gt;</span>
           </motion.div>
         </div>
       )}
