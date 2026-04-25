@@ -4,12 +4,12 @@ import { FiBriefcase, FiCalendar, FiMapPin } from "react-icons/fi";
 export default function Experience() {
   const experiences = [
     {
-      title: "Senior Frontend Engineer",
+      title: "Frontend Engineer",
       company: "TechCorp Innovations",
       location: "Remote (Global)",
       period: "2025 – Present",
       description:
-        "Led the rewrite of the core dashboard using Next.js 14 and Tailwind, improving performance by 40%. Mentored 3 junior devs and established component library standards.",
+        "Led the rewrite of the core dashboard using Next.js and Tailwind, improving performance by 40%. Mentored 3 junior devs and established component library standards.",
       achievements: [
         "Performance optimization",
         "Team leadership",
@@ -17,13 +17,22 @@ export default function Experience() {
       ],
     },
     {
-      title: "Frontend-Developer",
+      title: "Fullstack-Developer",
       company: "Ryva",
       location: "Nigeria",
-      period: "2023 – 2024",
+      period: "2025 – present",
       description:
-        "Built and deployed 3+ client projects ranging from e‑commerce platforms to real‑time analytics dashboards and Real Estate Platform. Worked directly with clients to translate business needs into technical specs.",
-      achievements: ["Next.js + Node.js + Express", "Client facing", "AWS deployment"],
+        "Building and deploying custom websites and web apps for startups. Handling everything from UI design to backend integration and hosting.",
+      achievements: ["Next.js + Node.js + Express", "vercel"],
+    },
+    {
+      title: "Frontend-Developer",
+      company: "Platter",
+      location: "Remote",
+      period: "2025 – 2025",
+      description:
+        "Built a real estate web app for buying and selling properties.",
+      achievements: ["Next.js", "Tailwind", "RadixUi"],
     },
     {
       title: "Freelance Web Developer",
