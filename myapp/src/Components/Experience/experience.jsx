@@ -4,44 +4,61 @@ import { FiBriefcase, FiCalendar, FiMapPin } from "react-icons/fi";
 export default function Experience() {
   const experiences = [
     {
-      title: "Frontend Engineer",
-      company: "TechCorp Innovations",
-      location: "Remote (Global)",
-      period: "2025 – Present",
+      title: "Full-Stack Engineer",
+      company: "Daniekeys Studios",
+      location: "Remote",
+      period: "2026",
       description:
-        "Led the rewrite of the core dashboard using Next.js and Tailwind, improving performance by 40%. Mentored 3 junior devs and established component library standards.",
+        "Building a client onboarding and project management platform that enables clients to register, onboard, manage proposals, and track project progress in real time. Developed dashboards, workflow systems, and scalable frontend architecture using Next.js, TypeScript, and Tailwind CSS while improving SEO, performance, and AI-powered automation features.",
       achievements: [
-        "Performance optimization",
-        "Team leadership",
-        "Design system",
+        "Next.js + TypeScript",
+        "SEO Optimization",
+        "AI Integration",
       ],
     },
+
     {
-      title: "Fullstack-Developer",
+      title: "Software Engineering Intern",
+      company: "Afriment",
+      location: "Remote (Internship)",
+      period: "2026",
+      description:
+        "Contributed to frontend development, debugging, and feature implementation for internal web applications. Collaborated with engineers using Git workflows and modern React development practices.",
+      achievements: [
+        "React Development",
+        "Git Collaboration",
+        "Frontend Debugging",
+      ],
+    },
+
+    {
+      title: "Full Stack Developer",
       company: "Ryva",
       location: "Nigeria",
-      period: "2025 – present",
+      period: "2025 – Present",
       description:
-        "Building and deploying custom websites and web apps for startups. Handling everything from UI design to backend integration and hosting.",
-      achievements: ["Next.js + Node.js + Express", "vercel"],
+        "Developing and deploying scalable web applications for startups, handling frontend architecture, backend APIs, and production deployments using modern full-stack technologies.",
+      achievements: ["Next.js", "Node.js + Express", "Vercel Deployment"],
     },
+
     {
-      title: "Frontend-Developer",
+      title: "Frontend Developer",
       company: "Platter",
       location: "Remote",
-      period: "2025 – 2025",
+      period: "2025",
       description:
-        "Built a real estate web app for buying and selling properties.",
-      achievements: ["Next.js", "Tailwind", "RadixUi"],
+        "Built a responsive real estate platform for property listing, buying, and selling with modern UI/UX and optimized frontend performance.",
+      achievements: ["Next.js", "Tailwind CSS", "Radix UI"],
     },
+
     {
       title: "Freelance Web Developer",
-      company: "Self‑Employed",
+      company: "Self-Employed",
       location: "Worldwide",
       period: "2023 – Present",
       description:
-        "Delivered custom websites and web apps for small businesses and startups. Handled everything from UI design to backend integration and hosting.",
-      achievements: ["End‑to‑end delivery", "SEO optimization", "Maintenance"],
+        "Delivered custom websites and web applications for startups and businesses, handling UI development, backend integration, SEO optimization, deployment, and ongoing maintenance.",
+      achievements: ["End-to-End Delivery", "SEO Optimization", "Performance"],
     },
   ];
 
@@ -71,7 +88,7 @@ export default function Experience() {
   return (
     <section
       id="Experience"
-      className="py-28 relative overflow-hidden font-syne"
+      className="py-20  relative overflow-hidden font-syne"
     >
       {/* Ambient blobs */}
       <div className="pointer-events-none absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-emerald-400/20 blur-[120px]" />
@@ -85,7 +102,10 @@ export default function Experience() {
         viewport={{ once: true, amount: 0.1 }}
       >
         {/* Section label */}
-        <motion.div variants={itemVariants} className="flex items-center gap-3 mb-6">
+        <motion.div
+          variants={itemVariants}
+          className="flex items-center gap-3 mb-6"
+        >
           <em className="inline-flex items-center gap-2 px-3 py-1 rounded-full border-2 border-gray-300/40 dark:border-gray-700/40 text-black dark:text-white text-xs font-medium tracking-wide uppercase bg-white/20 dark:bg-black/20 backdrop-blur-sm">
             <FiBriefcase className="w-3 h-3" />
             My Journey
@@ -94,7 +114,10 @@ export default function Experience() {
         </motion.div>
 
         {/* Heading */}
-        <motion.h2 variants={itemVariants} className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-[1.1] tracking-tight mb-5 max-w-3xl">
+        <motion.h2
+          variants={itemVariants}
+          className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-[1.1] tracking-tight mb-5 max-w-3xl"
+        >
           Experience That{" "}
           <span className="relative inline-block">
             <span
@@ -106,7 +129,10 @@ export default function Experience() {
           </span>
         </motion.h2>
 
-        <motion.p variants={itemVariants} className="lg:text-lg text-sm text-gray-500 dark:text-gray-400 max-w-2xl mb-16 leading-relaxed">
+        <motion.p
+          variants={itemVariants}
+          className="lg:text-lg text-sm text-gray-500 dark:text-gray-400 max-w-2xl mb-16 leading-relaxed"
+        >
           Over 3+ years of building products that people actually use. From
           startups to agencies, I've worn many hats — and loved every one.
         </motion.p>
@@ -168,10 +194,11 @@ export default function Experience() {
 
                   <div className="flex flex-wrap gap-2">
                     {exp.achievements.map((ach, i) => (
-                      <em key={i} className="inline-flex items-center gap-2 px-3 py-1 rounded-full border-2 border-gray-300/40 dark:border-gray-700/40 text-black dark:text-white text-xs font-medium tracking-wide uppercase bg-white/20 dark:bg-black/20 backdrop-blur-sm">
-                        <span
-                          className="!px-2 !py-1  !text-xs !text-black dark:!text-white !font-syne "
-                        >
+                      <em
+                        key={i}
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full border-2 border-gray-300/40 dark:border-gray-700/40 text-black dark:text-white text-xs font-medium tracking-wide uppercase bg-white/20 dark:bg-black/20 backdrop-blur-sm"
+                      >
+                        <span className="!px-2 !py-1  !text-xs !text-black dark:!text-white !font-syne ">
                           {ach}
                         </span>
                       </em>
