@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import {
   FiCheckCircle,
@@ -174,7 +174,7 @@ export default function ContactMe() {
             <div className="flex flex-col sm:flex-row gap-4">
               {/* Download Resume Button */}
               <a
-                href="/GANA _LEVI_RESUME.pdf"
+                href="/GANA_LEVI_RESUME.pdf"
                 download
                 className="group relative rounded-xl border border-white/20 bg-emerald-500 px-5 py-3 transition-all duration-300 hover:border-white/40 hover:-translate-y-1 flex items-center justify-center gap-2 overflow-hidden text-white font-medium"
               >
