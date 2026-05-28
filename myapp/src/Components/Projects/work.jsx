@@ -32,6 +32,8 @@ import Evoting from "../img/Evoting.jpeg";
 import form from "../img/form.jpeg";
 import G_express from "../img/G_express.jpeg";
 import Krea from "../img/krea.jpeg";
+import landing from "../img/landing.png";
+import tracker from "../img/tracker.png";
 
 // Project images
 const PROJECT_IMAGES = {
@@ -41,12 +43,55 @@ const PROJECT_IMAGES = {
   evoting: Evoting,
   contactform: form,
   kreai: Krea,
+  tracker: tracker,
+  landing: landing,
 };
 
 // Projects data (unchanged)
 const PROJECTS_DATA = [
   {
     id: 1,
+    title: "Engagement Tracker",
+    description:
+      "A custom lead tracking and CRM automated system built for Daniekeys Studios to shift the focus from static posting to active relationship building. It automatically streams email inquiries directly from Gmail, processes them via Make.com workflows, stores them in MongoDB via a secure Express.js API, and displays them on a React dashboard.",
+    shortDescription: "Automated lead tracking & CRM system",
+    image: PROJECT_IMAGES.tracker,
+    technologies: [
+      "React + TypeScript",
+      "Express.js",
+      "MongoDB",
+      "Make.com",
+      "Gmail",
+      "Render",
+    ],
+    category: "fullstack",
+    github: "https://github.com/Delight007/daniekeys-tracker",
+    live: "https://daniekey-studio-dm-tracker.vercel.app/",
+    featured: true,
+    stars: 48,
+    views: 1450,
+    status: "Live",
+    icon: <FiCodesandbox className="w-5 h-5" />,
+  },
+  {
+    id: 2,
+    title: "Daniekeys Studios Landing Page",
+    description:
+      "Modern, high-performance landing page designed and built for Daniekeys Studios. Focused on robust SEO optimization, page speed performance, visual UI enhancements, Google Business Profile integration, and Google Analytics setup to capture organic traffic and measure business metrics.",
+    shortDescription: "High-performance & SEO-optimized landing page",
+    image: PROJECT_IMAGES.landing,
+    technologies: ["HTML", "CSS", "JavaScript", "SEO", "Google Analytics"],
+    category: "frontend",
+    github: "https://github.com/Delight007/daniekeys-studios",
+    live: "https://daniekeysstudios.com",
+    featured: true,
+    stars: 38,
+    views: 1120,
+    status: "Live",
+    icon: <FiExternalLink className="w-5 h-5" />,
+  },
+  {
+    id: 3,
     title: "E-Commerce Website",
     description:
       "Built responsive e-commerce platform with product management, cart, checkout, and shipping calculations. Used React Query for performance optimization and deployed on Vercel.",
@@ -69,7 +114,7 @@ const PROJECTS_DATA = [
     icon: <FiShoppingCart className="w-5 h-5" />,
   },
   {
-    id: 2,
+    id: 4,
     title: "TribeTalk Chat App",
     description:
       "Real-time chat application with Socket.IO and JWT authentication. Designed responsive UI with online/offline status indicators. Built with React Native for cross-platform compatibility.",
@@ -94,7 +139,7 @@ const PROJECTS_DATA = [
     icon: <FiMessageSquare className="w-5 h-5" />,
   },
   {
-    id: 3,
+    id: 5,
     title: "E-Voting System",
     description:
       "Secure voting platform with user authentication and vote tracking. Implemented data security measures with Firebase authentication and real-time vote counting.",
@@ -111,7 +156,7 @@ const PROJECTS_DATA = [
     icon: <FiCheckCircle className="w-5 h-5" />,
   },
   {
-    id: 4,
+    id: 6,
     title: "Contact Form System",
     description:
       "Secure contact form implementation with email notifications using PHP and SMTP integration. Includes MySQL database for message storage and anti-spam protection.",
@@ -128,7 +173,7 @@ const PROJECTS_DATA = [
     icon: <FiMail className="w-5 h-5" />,
   },
   {
-    id: 5,
+    id: 7,
     title: "Krea AI Content Creator",
     description:
       "Modern UI design for AI-powered content creation platform. Built with Next.js and TypeScript for optimal performance and SEO optimization.",
@@ -195,11 +240,18 @@ export default function Projects() {
       "Next.js": <SiNextdotjs />,
       React: <SiReact />,
       TypeScript: <SiTypescript />,
+      "React + TypeScript": <SiReact />,
       "Tailwind CSS": <SiTailwindcss />,
       "Node.js": <SiNodedotjs />,
       MongoDB: <SiMongodb />,
       Firebase: <SiFirebase />,
       Express: <SiExpress />,
+      "Express.js": <SiExpress />,
+      "Make.com": <FiCodesandbox />,
+      Gmail: <FiMail />,
+      Render: <FiExternalLink />,
+      SEO: <FiStar />,
+      "Google Analytics": <FiCheckCircle />,
       "Socket.IO": <SiSocketdotio />,
       JWT: <SiFirebase />,
       "React Query": <SiReact />,
@@ -224,7 +276,7 @@ export default function Projects() {
       <div className="pointer-events-none absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-black/20 blur-[120px]" />
       <div className="pointer-events-none absolute -bottom-40 -left-40 w-[400px] h-[400px] rounded-full bg-black/15 blur-[100px]" />
 
-      <div className="container mx-auto px-6 max-w-6xl relative z-10 px-4 lg:px-0">
+      <div className="container mx-auto px-6 max-w-6xl relative z-10  lg:px-0">
         {/* Section label */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
